@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0b0d1a;
+  --surface: #12152b;
+  --accent: #5b3df5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--background);
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #12152b;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2f52;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #5b3df5;
+}
+
+/* Mapbox overrides */
+.mapboxgl-ctrl-group {
+  background: #12152b !important;
+  border: 1px solid #1e2447 !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4) !important;
+}
+
+.mapboxgl-ctrl-group button {
+  background: #12152b !important;
+  color: white !important;
+  border: none !important;
+  width: 36px !important;
+  height: 36px !important;
+}
+
+.mapboxgl-ctrl-group button:hover {
+  background: #1e2447 !important;
+}
+
+.mapboxgl-ctrl-group button + button {
+  border-top: 1px solid #1e2447 !important;
+}
+
+.mapboxgl-ctrl-group .mapboxgl-ctrl-icon {
+  filter: invert(1) !important;
+}
+
+.mapboxgl-ctrl-attrib {
+  display: none !important;
+}
+
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+/* Estilos para el marcador de usuario */
+.user-marker {
+  width: 20px;
+  height: 20px;
+  background: #5b3df5;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(91, 61, 245, 0.3);
+  animation: user-pulse 2s ease-in-out infinite;
+}
+
+@keyframes user-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px rgba(91,61,245,0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(91,61,245,0.1); }
+}
+
+/* Pin de negocio */
+.business-pin {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.business-pin:hover {
+  transform: scale(1.15) translateY(-3px);
+}
+
+.business-pin.selected {
+  transform: scale(1.2) translateY(-5px);
+  z-index: 10;
+}
+
+/* Animación del carrusel */
+.carousel-track {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Bottom sheet en móvil */
+.bottom-sheet {
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.bottom-sheet.open {
+  transform: translateY(0);
+}
