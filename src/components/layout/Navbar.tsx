@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { MapPin, Search, Menu, X } from "lucide-react";
+import Image from "next/image";
+import { Search, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -11,11 +12,18 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-          <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-            <MapPin size={18} color="white" />
+        <Link href="/" className="flex items-center gap-2.5 font-bold text-xl">
+          <div className="w-9 h-9 rounded-xl overflow-hidden flex-shrink-0">
+            <Image
+              src="/logo.jpg"
+              alt="Vitrinex logo"
+              width={36}
+              height={36}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
-          <span className="text-white">Vitrinex</span>
+          <span className="text-white tracking-tight">Vitrinex</span>
         </Link>
 
         {/* Nav desktop */}
@@ -41,7 +49,10 @@ export default function Navbar() {
           <button className="text-sm text-muted hover:text-white transition-colors px-4 py-2">
             Iniciar sesión
           </button>
-          <button className="text-sm font-semibold text-white px-5 py-2.5 rounded-xl transition-all hover:brightness-110 active:scale-95 shadow-glow-sm" style={{ background: "#5b3df5" }}>
+          <button
+            className="text-sm font-semibold text-white px-5 py-2.5 rounded-xl transition-all hover:brightness-110 active:scale-95 shadow-glow-sm"
+            style={{ background: "#5b3df5" }}
+          >
             Crear mi tienda
           </button>
         </div>
@@ -75,7 +86,10 @@ export default function Navbar() {
             <button className="w-full text-sm text-muted hover:text-white transition-colors py-2 text-left">
               Iniciar sesión
             </button>
-            <button className="w-full text-sm font-semibold text-white py-3 rounded-xl" style={{ background: "#5b3df5" }}>
+            <button
+              className="w-full text-sm font-semibold text-white py-3 rounded-xl"
+              style={{ background: "#5b3df5" }}
+            >
               Crear mi tienda
             </button>
           </div>
